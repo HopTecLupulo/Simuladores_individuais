@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Tamanho da área em m²: <input id="ipt_metrosq" type="number"> <br>
+    OU <br>
+    Tamanho da área em Hectares: <input id="ipt_hectares" type="number" ><br>
+    Valor de venda do kg do lúpulo peletizado: <input id="ipt_valor"><br>
+    <button onclick="Sim()">Já possuo Iluminação Artificial</button>
+    <button onclick="Não()">Não possuo Iluminação Artifical</button>
+<div id="div_sim"></div>
+       
+</body>
+</html>
+<script>
+    function Sim(){
+        
+        var METROS = Number(ipt_metrosq.value)
+        var AREA= Number(ipt_hectares.value)
+                if (METROS>0){
+            var AREA = METROS/10000
+        }
+        var PRODTOP = AREA*3400
+        div_sim.innerHTML = `Parabéns pela produção! Mas você ainda pode melhorar! Com seu controle correto, utilizando os dados disponibilizados pela nossa solução, você pode chegar até ${PRODTOP} kg de lúpulo peletizados por ano, com qualidade para deixar até o mais exigente cervejeiro satisfeito!`
+        var CUSTOKG= Number(ipt_valor.value)
+        var LUCRO= CUSTOKG*PRODTOP
+        div_sim.innerHTML += `<br>Com nossa solução você pode chegar a faturar <b>R$ ${LUCRO}</b> por ano! Entre em contato ou realize o cadastro que nossa equipe entrará em contato com você!`
+    }
+    function Não(){
+        
+        var METROS = Number(ipt_metrosq.value)
+        var AREA= Number(ipt_hectares.value)
+                if (METROS>0){
+            var AREA = METROS/10000
+        }
+        var PROD = AREA*2400
+        div_sim.innerHTML = `Sua plantação tem o potencial Mínimo podutivo de ${PROD} kgs de lúpulo peletizados por ano! Instale iluminção artificial e com ajuda da HOP_TECH atinja melhores reultados!`
+        var CUSTOKG= Number(ipt_valor.value)
+        var LUCRO= CUSTOKG*PROD
+        div_sim.innerHTML += `<br>Com nossa solução você pode chegar a faturar <b>R$ ${LUCRO}</b> por ano! Entre em contato ou realize o cadastro que nossa equipe entrará em contato com você!`
+    }
+    </script>
