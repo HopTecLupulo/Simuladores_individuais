@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hop_tech</title>
+</head>
+<body style="text-align: center;">
+    Tamanho da área em m²: 
+    <br>
+    <input id="metros"> 
+    <br>
+
+    <i>OU</i>
+    <br>
+
+    Tamanho da área em Hectares: 
+    <br>
+    <input id="hec"> 
+    <br>  
+    
+    Valor de venda do kg do lúpulo peletizado: 
+    <br>
+    <input id="venda">
+    <br>
+
+    <button onclick="analisar()">Analisar</button>
+    
+    <div id="mensagem">
+
+    </div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        if(metros.value > 0){
+            var area = metros.value / 10000;
+        }else {
+            var area = hec.value;
+        }
+
+        var lucro = (area * 3400) * venda.value;
+
+        mensagem.innerHTML = `Sua produção anual tem a capacidade de chegar por volta de R$${lucro} com os devidos monitoramentos do nosso projeto `;
+    }
+</script>
