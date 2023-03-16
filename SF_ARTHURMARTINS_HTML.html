@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calc.css">
+</head>
+<body>
+    
+
+    
+    <b><h3>HOP_TECH</h3></b>
+    <div class="div1" id="informations"> 
+        
+       <span class="span_metros"> Informe a quantidade de Metros²</span><br>
+       <input type="number" placeholder="M²" class="inp_metros" id="inp_metros"><br>
+
+       <span class="span_hectares">Ou Informe a quantidade de Hectare</span><br>
+       <input type="number" placeholder="Hectar" class="inp_hectares" id="inp_hectares"><br>
+
+       <span class="span_valor">Informe o valor que venderá o KG</span><br>
+       <input type="number" placeholder="R$" class="inp_valor" id="inp_valor_venda" >
+
+       <span class="span_possui">Você já possui Iluminação?</span> <br>
+
+
+       <button class="button_sim" id="btn_sim" onclick="sim()"><b>SIM</b></button>
+       <button class="button_nao" id="btn_nao" onclick="nao()"><b>NÃO</b></button> <br>
+
+       
+       
+       
+    </div>
+    <div class="div2" id="div_verao">
+        <br>
+       <b><span class="span_verao" id="span_verao"></span></b>
+    </div>
+    
+</body>
+</html>
+<script>
+        
+
+    
+    function sim()
+    {
+        var metros = Number(inp_metros.value);
+        var hectare = Number(inp_hectares.value);
+        var valor = Number(inp_valor_venda.value)
+        
+       
+        //calculando metros para hectares
+       
+
+        if(metros > 0)
+        {
+            var area = metros/10000 
+            
+           
+            var calculo_diacomun = area * 1250;
+            var calculo_verão = area * 1900; 
+            var calculo_valor_verão = valor * calculo_verão 
+            var calculo_valor_diacomun = valor * calculo_diacomun
+            span_verao.innerHTML = `Com a nossa solução você ira produzir no verão ${parseInt(calculo_verão)}KG de lupulo por m², e lucrar R$${calculo_valor_verão}, `
+            span_verao.innerHTML+= `e nos dias comuns irá produzir ${parseInt(calculo_diacomun)}KG de lupulo por m², e lucrar R${calculo_valor_diacomun} `
+                
+           
+           
+          
+
+        }          
+        if(hectare >0)
+        {
+            
+            var areaH = parseInt(hectare)
+            var calculo_diacomun = areaH * 1250;//1250 são os kg 
+            var calculo_verão = areaH * 1900; //1900 são os Kg
+            var calculo_valor_verão = valor * calculo_verão
+            var calculo_valor_diacomun = valor * calculo_diacomun 
+            span_verao.innerHTML = `Com a nossa solução você ira produzir no verão ${parseInt(calculo_verão)}KG de lupulo por Hectare,e lucrar R$${calculo_valor_verão} `
+            span_verao.innerHTML+= `e nos dias comuns irá produzir ${parseInt(calculo_diacomun)}KG de lupulo por Hectare, e lucrar R${calculo_valor_diacomun}`
+           
+           
+        }
+       
+
+    }
+    function nao()
+        {
+             var metros = Number(inp_metros.value);
+             var hectare = Number(inp_hectares.value);
+             var valor = Number(inp_valor_venda.value)
+
+
+             //calculando metros para hectares
+
+
+            if(metros > 0)
+            {
+                 var area = metros/10000 
+             
+             
+                 var safra_minima = area * 300;
+                 var safra_maxima = area * 500; 
+                 var calculo_valor_minimo = valor * safra_minima 
+                 var calculo_valor_maximo = valor * safra_maxima
+                 span_verao.innerHTML = `Sem a nossa solução e sem iluminação, você iré ter uma safra minima de ${safra_minima}KG e render R$${calculo_valor_minimo} ou, `
+                 span_verao.innerHTML+= `terá uma safra no maximo de ${safra_maxima}KG e irá lucrar R$${calculo_valor_maximo}  `
+
+
+            }          
+            if(hectare >0)
+            {
+
+                 var areaH = parseInt(hectare)
+                
+             
+             
+                 var safra_minima = areaH * 300;
+                 var safra_maxima = areaH * 500; 
+                 var calculo_valor_minimo = valor * safra_minima 
+                 var calculo_valor_maximo = valor * safra_maxima
+                 span_verao.innerHTML = `Sem a nossa solução e sem iluminação, você iré ter uma safra minima de ${safra_minima}KG e render R$${calculo_valor_minimo} ou, `
+                 span_verao.innerHTML+= `terá uma safra no maximo de ${safra_maxima}KG e irá lucrar R$${calculo_valor_maximo}  `
+
+
+
+            }
+        }
+
+</script>
