@@ -1,0 +1,33 @@
+body{
+    background-color: #76B8FF;
+   
+}
+.imagem{
+    opacity: 0.8;
+    text-align: center;
+    margin-left: 50%;
+}
+h1{
+    font-family: serif;
+
+}
+.card{
+    margin-top: 4%;
+    margin-left: 28%;
+    text-align: center;
+    width: 600px;
+    height: 510px;
+    background-color: aliceblue;
+    border-radius: 25px;
+    border:solid 5px #022419;
+}
+.arrumar{
+    background-color: #76B8FF;
+    border-radius: 20px;
+}
+.textos{
+    margin-top: 42px;
+}
+.foto{
+    background-image: url(1677797738397.png);
+}

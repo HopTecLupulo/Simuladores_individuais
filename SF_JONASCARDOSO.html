@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stilo.css">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+    <img class="imagem" src="1677797738397.png" height="50%" width="5%">
+    <div class="card">
+        <div class="textos">
+            <div class="teste1">
+                <h1>
+                    Digite o valor o m² <br> <input type="number" id="metro">
+                </h1>
+            </div>
+            <div class="teste2">
+                <h1>
+                    digite o hectar <br> <input type="number" id="hectar"> 
+                </h1>
+            </div>
+            <div class="teste3">
+                <h1>
+                    Digite o valor do kg do lupúlo<br> <input type="number" id="kilo">
+                </h1>
+            </div>
+            <div class="teste4">
+                <h1>
+                    Digite a produção em kilos<br> <input type="number" id="producaoKg">
+                </h1>
+            </div>
+            
+            <button onclick="orcamento()" class="arrumar">
+                Orçamento
+            </button>
+
+            <div id="resultado">
+
+            </div>
+        </div>
+</div>
+
+    
+</body>
+</html>
+
+<script>
+   // alert("colocar apenas um campo de metragem, Hectare ou m²");
+
+    function orcamento(){
+        var metroQuadrado = Number(metro.value);
+        var hectares = Number(hectar.value);
+        var kg = Number(kilo.value);
+        var kgProducao = Number(producaoKg.value);
+
+
+        if( hectares > 0 ) {
+            var preco = kg * kgProducao;
+            var ideal = 3400 * hectares;
+            var precoIdeal = ideal * kg;
+            resultado.innerHTML = `Hoje seu faturamento está em R$${preco} e com a Houp Tech R$${precoIdeal} a mais no seu lucro`;
+        };
+        if( metroQuadrado > 0) {
+            var valores = metroQuadrado/10000;
+            var preco2 = kg *kgProducao;
+            var ideal2 = 3400 * valores;
+            var precoIdeal2 = ideal2 * kg;
+            resultado.innerHTML = `Hoje seu faturamento está em R$${preco2} e com a Houp Tech R$${precoIdeal2} a mais no seu lucro`
+        }
+    }
+
+</script>
