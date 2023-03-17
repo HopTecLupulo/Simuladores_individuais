@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+
+    <h3>Tamanho da área em m²:</h3>
+    <input id="metroQdr" type="number"><br>
+    
+    <h3>Tamanho da área em hectare:</h3>
+    <input id="metroHct" type="number"><br>
+    
+    <h3>Valor do kg do lúpulo:</h3>
+    <input id="kgLupulo" type="number">
+    <br>
+    <button onclick="Possuo()">Já possuo iluminação artificial</button>
+    <button onclick="naoPossuo()">Não possuo iluinação artificial</button>
+
+    <div id="divSim"></div>
+
+</body>
+</html>
+<script>
+
+    function Possuo(){
+        var metros = Number(metroQdr.value)
+        var area = Number(metroHct.value)
+        var valorKg = Number(kgLupulo.value)
+        if (metros > 0){
+            area = metros/ 10000
+        }
+
+        var valorIdeal = area * 3400
+        var lucro = valorKg * valorIdeal
+        divSim.innerHTML = `Parabéns pela produção, mas é possível melhorar! Com a nossa solução, sua produção pode chegar a ${valorIdeal}KGs por ano. `
+        divSim.innerHTML += `E com esse número de produção seu lucro pode chegar a R$${lucro} ao ano!`
+    }
+
+    function naoPossuo(){
+        var metros = Number(metroQdr.value)
+        var area = Number(metroHct.value)
+        var valorKg = Number(kgLupulo.value)
+        if (metros> 0){
+            area = metros / 10000
+        }
+         var valorMinimo = area * 2400
+         var lucro = valorKg * valorMinimo
+        divSim.innerHTML =  `Com os nossos sensores você pode produzir até 3 VEZES o número da produção atual, podendo chegar a ${valorMinimo}KGs por ano. `
+        divSim.innerHTML += `E com esse número de produção seu lucro pode chegar a R$${lucro} ao ano!`
+    }
+</script>
